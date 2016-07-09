@@ -1,8 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='webjars/bootstrap/3.3.6/css/bootstrap.min.css'>
 </head>
 <body>
-<h1>Hello JEE Web Sockets!</h1>
+<div class="container">
+    <div class="jumbotron text-center">
+        <h2>Welcome to Java API for WebSockets (<a target="_blank"
+                                                   href="https://jcp.org/en/jsr/detail?id=356">JSR-356</a>) Seed</h2>
+        <p>... To have more fun start connecting devices ...</p>
+        <button id="addDeviceButton" class="btn btn-primary" onClick="showForm()">Connect a device</button>
+    </div>
+
+    <form id="addDeviceForm" role="form">
+        <div class="form-group">
+            <label for="device_type">Type:</label>
+            <select class="form-control" id="device_type">
+                <option name="type" value="Appliance">Appliance</option>
+                <option name="type" value="Electronics">Electronics</option>
+                <option name="type" value="Lights">Lights</option>
+                <option name="type" value="Other">Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="device_name">Name:</label>
+            <input class="form-control" type="text" name="device_name" id="device_name">
+        </div>
+        <div class="form-group">
+            <label for="device_description">Description:</label>
+            <textarea class="form-control" name="description" id="device_description" rows="3"></textarea>
+        </div>
+
+        <button type="button" class="btn btn-primary" onclick="formSubmit()">Save</button>
+        <button type="button" class="btn btn-default" onclick="hideForm()">Cancel</button>
+    </form>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="text-center">Currently connected devices</h3>
+            <div class="table-responsive">
+                <table id="devicesTable" class="table table-bordered table-condensed table-striped table-hover">
+                    <tr>
+                        <th>ID</th>
+                        <th>Type</th>
+                        <th>Name</th>
+                        <th>Status</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="webjars/jquery/1.11.1/jquery.min.js"></script>
+<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="scripts/app.js"></script>
 </body>
 </html>
